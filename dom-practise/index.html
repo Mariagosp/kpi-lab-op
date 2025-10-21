@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+        background-color: #f4f4f9;
+      }
+      input {
+        padding: 8px;
+        font-size: 16px;
+      }
+      button {
+        padding: 8px 12px;
+        margin-left: 8px;
+        cursor: pointer;
+      }
+      #list {
+        margin-top: 20px;
+        background: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+      li {
+        margin: 5px 0;
+        list-style-type: disc;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Enter smth in a list</h2>
+
+    <input type="text" id="userInput" placeholder="Hello..." />
+    <button id="addButton">Add</button>
+
+    <div id="list"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
