@@ -1,30 +1,17 @@
-async function iteratorWithTimeout(iterator, durationSeconds) {
-  const startTime = Date.now();
-  const timeoutMs = durationSeconds * 1000;
+function iteratorWithTimeout(iterator, durationSeconds) {
+  let sum = 0;
+  const durationInMiliseconds = durationSeconds * 1000;
 
-  let count = 0;
-  let sum = 0n;
+  const interval = setInterval(() => {
+    const number = iterator.next().value;
+    sum += number;
+    console.log(`Number is ${number}!\nSum is ${sum}`);
+  }, 100);
 
-  while (Date.now() - startTime < timeoutMs) {
-    const { value, done } = iterator.next();
-
-    if (done) {
-      console.log("Iterator finished");
-      break;
-    }
-
-    count++;
-    sum += BigInt(value);
-
-    console.log(`[${new Date().toLocaleTimeString()}]`);
-    console.log(`Iteration #${count}: Value = ${value}`);
-    console.log(`Total Sum: ${sum}`);
-    console.log("---------------------------");
-
-    await new Promise((resolve) => setTimeout(resolve, 100));
-  }
-
-  console.log(`\nTime's up`);
+  setTimeout(() => {
+    clearInterval(interval);
+    console.log("\nTime`s up");
+  }, durationInMiliseconds);
 }
 
 module.exports = { iteratorWithTimeout };
