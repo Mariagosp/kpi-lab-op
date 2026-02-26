@@ -5,7 +5,10 @@ function* fibonacciGenerator() {
 
   while (true) {
     yield curr;
-    [prev, curr] = [curr, prev + curr];
+
+    let next = prev + curr;
+    prev = curr;
+    curr = next;
   }
 }
 

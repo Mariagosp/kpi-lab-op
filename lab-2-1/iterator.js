@@ -1,6 +1,6 @@
 function iteratorWithTimeout(iterator, durationSeconds) {
-  let sum = 0;
   const durationInMiliseconds = durationSeconds * 1000;
+  let sum = 0;
 
   const interval = setInterval(() => {
     const number = iterator.next().value;
